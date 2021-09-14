@@ -13,11 +13,6 @@ import net.minecraft.entity.LivingEntity;
 public class RazorSharpnessEnchantment extends Enchantment
 {
 	static float razorDamageIncrease = MoreGems.CONFIG.GENERAL.razorDamageIncrease;
-	
-//	public RazorSharpnessEnchantment(Rarity weight, int typeIndex, EquipmentSlot[] slots)
-//	{
-//		super(weight, typeIndex, slots);
-//	}
 
 	public RazorSharpnessEnchantment(Enchantment.Rarity rarity, EquipmentSlot[] equipmentSlots)
 	{
