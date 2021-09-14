@@ -3,18 +3,15 @@ package com.kwpugh.more_gems.init;
 import com.kwpugh.more_gems.MoreGems;
 import com.kwpugh.more_gems.enchantments.*;
 
-import net.minecraft.enchantment.DamageEnchantment;
-import net.minecraft.enchantment.EfficiencyEnchantment;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.ThornsEnchantment;
+import net.minecraft.enchantment.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class EnchantmentInit
 {
-	public static final DamageEnchantment RAZOR_SHARPNESS = new RazorSharpnessEnchantment(Enchantment.Rarity.VERY_RARE, 0, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-	public static final DamageEnchantment SHULKER_BLADE = new ShulkerBladeEnchantment(Enchantment.Rarity.VERY_RARE, 0, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+	public static final Enchantment RAZOR_SHARPNESS = new RazorSharpnessEnchantment(Enchantment.Rarity.VERY_RARE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+	public static final Enchantment SHULKER_BLADE = new ShulkerBladeEnchantment(Enchantment.Rarity.VERY_RARE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 	public static final DamageEnchantment QUICKENING = new QuickeningEnchantment(Enchantment.Rarity.VERY_RARE, 0, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
 	public static final ThornsEnchantment UNTOUCHABLE = new UntouchableEnchantment(Enchantment.Rarity.VERY_RARE, new EquipmentSlot[]{EquipmentSlot.CHEST});
 	public static final EfficiencyEnchantment FASTER_OBSIDIAN = new FasterObsidianEnchantment(Enchantment.Rarity.VERY_RARE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
