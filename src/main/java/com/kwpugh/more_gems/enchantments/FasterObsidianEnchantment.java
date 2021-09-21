@@ -6,6 +6,7 @@ import net.minecraft.enchantment.EfficiencyEnchantment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
 
 public class FasterObsidianEnchantment extends EfficiencyEnchantment
 {
@@ -31,6 +32,11 @@ public class FasterObsidianEnchantment extends EfficiencyEnchantment
 	{
 		Item pickaxe = stack.getItem();
 
+		if(pickaxe instanceof PickaxeItem)
+		{
+			return this.type.isAcceptableItem((stack.getItem()));
+		}
+
 		if(pickaxe == ItemInit.CORUNDUM_PICKAXE ||
 				pickaxe == ItemInit.SAPPHIRE_PICKAXE ||
 				pickaxe == ItemInit.RUBY_PICKAXE ||
@@ -50,6 +56,5 @@ public class FasterObsidianEnchantment extends EfficiencyEnchantment
 		{
 			return false;
 		}
-
 	}
 }

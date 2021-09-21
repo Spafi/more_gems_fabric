@@ -24,6 +24,7 @@ public class BlockInit
 	public static final Block SAPPHIRE_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
 	public static final Block RUBY_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
 	public static final Block CARBONADO_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
+	public static final Block MOISSANITE_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
 
 	public static final Block CITRINE_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
 	public static final Block TOURMALINE_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
@@ -34,6 +35,7 @@ public class BlockInit
 	public static final Block SAPPHIRE_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
 	public static final Block RUBY_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
 	public static final Block CARBONADO_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
+	public static final Block MOISSANITE_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
 
 	public static void registerBlocks()
 	{
@@ -47,6 +49,7 @@ public class BlockInit
 		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "sapphire_ore"), SAPPHIRE_ORE);
 		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "ruby_ore"), RUBY_ORE);
 		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "carbonado_ore"), CARBONADO_ORE);
+		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "moissanite_ore"), MOISSANITE_ORE);
 		
 		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "citrine_block"), CITRINE_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "tourmaline_block"), TOURMALINE_BLOCK);
@@ -57,6 +60,7 @@ public class BlockInit
 		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "sapphire_block"), SAPPHIRE_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "ruby_block"), RUBY_BLOCK);
 		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "carbonado_block"), CARBONADO_BLOCK);
+		Registry.register(Registry.BLOCK, new Identifier(MoreGems.MOD_ID, "moissanite_block"), MOISSANITE_BLOCK);
 		
 	}
 	
@@ -73,6 +77,7 @@ public class BlockInit
 			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "sapphire_ore"), new BlockItem(SAPPHIRE_ORE, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
 			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "ruby_ore"), new BlockItem(RUBY_ORE, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
 			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "carbonado_ore"), new BlockItem(CARBONADO_ORE, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
+			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "moissanite_ore"), new BlockItem(MOISSANITE_ORE, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
 			
 			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "citrine_block"), new BlockItem(CITRINE_BLOCK, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
 			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "tourmaline_block"), new BlockItem(TOURMALINE_BLOCK, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
@@ -83,6 +88,7 @@ public class BlockInit
 			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "sapphire_block"), new BlockItem(SAPPHIRE_BLOCK, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
 			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "ruby_block"), new BlockItem(RUBY_BLOCK, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
 			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "carbonado_block"), new BlockItem(CARBONADO_BLOCK, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
+			Registry.register(Registry.ITEM, new Identifier(MoreGems.MOD_ID, "moissanite_block"), new BlockItem(MOISSANITE_BLOCK, new Item.Settings().group(MoreGems.MORE_GEMS_GROUP)));
 		}
 	}
 	

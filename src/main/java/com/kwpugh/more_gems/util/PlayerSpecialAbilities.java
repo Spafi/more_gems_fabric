@@ -3,6 +3,7 @@ package com.kwpugh.more_gems.util;
 import com.kwpugh.more_gems.MoreGems;
 import com.kwpugh.more_gems.init.EnchantmentInit;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.MagmaBlock;
 import net.minecraft.block.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -162,6 +163,36 @@ public class PlayerSpecialAbilities
 			}
 
 			return;
+		}
+	}
+
+	// Restores health while in fire/flame
+	public static void givePhoenixEffect(World world, PlayerEntity player)
+	{
+		BlockPos pos = player.getBlockPos();
+		BlockPos down = pos.down();
+
+		if(world.getBlockState(down).getBlock() == Blocks.MAGMA_BLOCK)
+		{
+			player.setNoGravity(true);
+		}
+		else
+		{
+			player.setNoGravity(false);
+		}
+
+		if(player.isOnFire() ||
+				player.isInLava())
+		{
+			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 8, 0, false, false);
+			StatusEffectInstance effect2 = new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 8, 0, false, false);
+			StatusEffectInstance effect3 = new StatusEffectInstance(StatusEffects.SATURATION, 8, 0, false, false);
+
+			{
+				player.addStatusEffect(effect);
+				player.addStatusEffect(effect2);
+				player.addStatusEffect(effect3);
+			}
 		}
 	}
 }

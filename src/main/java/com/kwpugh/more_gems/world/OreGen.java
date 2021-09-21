@@ -115,6 +115,28 @@ public class OreGen
 			.spreadHorizontally()
 			.repeat(CONFIG.carbonadoPerChunk); // number of veins per chunk
 
+	// Low view
+	public static ConfiguredFeature<?, ?> ORE_MOISSANITE_NETHER = Feature.ORE
+			.configure(new OreFeatureConfig(
+					OreFeatureConfig.Rules.BASE_STONE_NETHER,
+					BlockInit.MOISSANITE_ORE.getDefaultState(),
+					CONFIG.moissaniteVeinSize)) // vein size
+			.range(new RangeDecoratorConfig(
+					UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(CONFIG.moissaniteMaxLevel)))) // Inclusive min and max height
+			.spreadHorizontally()
+			.repeat(CONFIG.moissanitePerChunk); // number of veins per chunk
+
+	// High view
+	public static ConfiguredFeature<?, ?> ORE_MOISSANITE_NETHER_HIGH = Feature.ORE
+			.configure(new OreFeatureConfig(
+					OreFeatureConfig.Rules.BASE_STONE_NETHER,
+					BlockInit.MOISSANITE_ORE.getDefaultState(),
+					CONFIG.moissaniteVeinSize)) // vein size
+			.range(new RangeDecoratorConfig(
+					UniformHeightProvider.create(YOffset.aboveBottom(98), YOffset.fixed(CONFIG.moissaniteHighMaxLevel)))) // Inclusive min and max height
+			.spreadHorizontally()
+			.repeat(CONFIG.moissanitePerChunk); // number of veins per chunk
+
 	// Special settings for custom biome
 	public static ConfiguredFeature<?, ?> ORE_CARBONADO_BIOME = Feature.ORE
 			.configure(new OreFeatureConfig(
@@ -226,6 +248,20 @@ public class OreGen
 					new Identifier(MoreGems.MOD_ID, "ore_carbonado_biome"));
 			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreCarbonadoBiome.getValue(), ORE_CARBONADO_BIOME);
 			BiomeModifications.addFeature(BiomeSelectors.includeByKey(CarbonadoBiome.CARBONADO_KEY), GenerationStep.Feature.UNDERGROUND_ORES, oreCarbonadoBiome);
+		}
+
+		if(CONFIG.moissaniteEnable)
+		{
+			RegistryKey<ConfiguredFeature<?, ?>> oreMoissaniteNether = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
+					new Identifier(MoreGems.MOD_ID, "ore_moissanite_nether"));
+			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreMoissaniteNether.getValue(), ORE_MOISSANITE_NETHER);
+			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreMoissaniteNether);
+
+			RegistryKey<ConfiguredFeature<?, ?>> oreMoissaniteNetherHigh = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
+					new Identifier(MoreGems.MOD_ID, "ore_moissanite_nether_high"));
+			Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreMoissaniteNetherHigh.getValue(), ORE_MOISSANITE_NETHER_HIGH);
+			BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreMoissaniteNetherHigh);
+
 		}
 	}
 }
