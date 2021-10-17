@@ -2,6 +2,8 @@ package com.kwpugh.more_gems.util;
 
 import com.kwpugh.more_gems.MoreGems;
 import com.kwpugh.more_gems.init.EnchantmentInit;
+import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MagmaBlock;
 import net.minecraft.block.Material;
