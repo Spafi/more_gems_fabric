@@ -409,5 +409,14 @@ public class MoreGemsConfig extends PartitioningSerializer.GlobalData
 		public float moissaniteToughness = 0.75F;
 		public float moissaniteKnockbackResistance = 0.25F;
 		public boolean enableMoissaniteCuring = true;
+
+		@Comment("***********************"
+				+"\nGemBag Safety"
+				+"\n- Does not allow opening a"
+				+"\ngembag if more than one is"
+				+"\non the hotbar"
+				+"\n- This prevents posibble dup'ing"
+				+"\n***********************")
+		public boolean enableSingleGemBagkOnHotbar = true;
 	}
 }
