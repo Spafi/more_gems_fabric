@@ -429,5 +429,6 @@ public class MoreGemsConfig extends PartitioningSerializer.GlobalData
 				+"\n- This prevents posibble dup'ing"
 				+"\n***********************")
 		public boolean enableSingleGemBagkOnHotbar = true;
+		public boolean requireOffhandOpening = true;
 	}
 }

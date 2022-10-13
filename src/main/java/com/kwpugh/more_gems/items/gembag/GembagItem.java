@@ -2,6 +2,7 @@ package com.kwpugh.more_gems.items.gembag;
 
 import com.kwpugh.more_gems.MoreGems;
 import com.kwpugh.more_gems.init.ContainerInit;
+import com.kwpugh.more_gems.init.ItemInit;
 import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -36,7 +37,29 @@ public class GembagItem extends Item
     {
         if(world.isClient()) return TypedActionResult.pass(player.getStackInHand(hand));
 
+        ItemStack mainHandStack= player.getMainHandStack();
         ItemStack offHandStack = player.getOffHandStack();
+
+        if(mainHandStack.isOf(this) && !MoreGems.CONFIG.GENERAL.requireOffhandOpening)
+        {
+            if(MoreGems.CONFIG.GENERAL.enableSingleGemBagkOnHotbar)
+            {
+                if(onlyOneBackpack(world, player, ContainerInit.GEMBAG))
+                {
+                    openBackpack(world, player, hand);
+                }
+                else
+                {
+                    player.sendMessage((new TranslatableText("Must be only one Backpack in hotbar or offhand").formatted(Formatting.WHITE)), true);
+                }
+            }
+            else
+            {
+                openBackpack(world, player, hand);
+            }
+
+            return TypedActionResult.success(player.getStackInHand(hand));
+        }
 
         if(offHandStack.isOf(this))
         {
@@ -136,6 +159,15 @@ public class GembagItem extends Item
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
     {
         tooltip.add(new TranslatableText("item.more_gems.gembag.tip1").formatted(Formatting.YELLOW));
-        tooltip.add(new TranslatableText("item.more_gems.gembag.tip2").formatted(Formatting.YELLOW));
+
+        if(MoreGems.CONFIG.GENERAL.requireOffhandOpening)
+        {
+            tooltip.add(new TranslatableText("item.more_gems.gembag.tip2").formatted(Formatting.YELLOW));
+        }
+
+        if(MoreGems.CONFIG.GENERAL.enableSingleGemBagkOnHotbar)
+        {
+            tooltip.add(new TranslatableText("item.more_gems.gembag.tip3").formatted(Formatting.YELLOW));
+        }
     }
 }
